@@ -15,11 +15,12 @@ function LoginScene:onCreate()
     local function touchEvent(sender,eventType)
         if eventType == ccui.TouchEventType.began then
             printf("Touch Down")
-            self:getApp():enterScene("MainScene")
+
         elseif eventType == ccui.TouchEventType.moved then
             printf("Touch Move")
         elseif eventType == ccui.TouchEventType.ended then
             printf("Touch Up")
+            self:getApp():enterScene("MainScene")
         elseif eventType == ccui.TouchEventType.canceled then
             printf("Touch Cancelled")
         end

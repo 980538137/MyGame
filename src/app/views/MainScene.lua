@@ -33,7 +33,7 @@ function MainScene:onCreate()
     local function touchEvent(sender,eventType)
         if eventType == ccui.TouchEventType.began then
             --printf("Touch Down")
-            self:getApp():enterScene("LoginScene")
+
 --            local req = mobileGame_pb.ReqGameAccountLogin()
 --            req.account = "sgxsgx"
 --            req.accountType = 0
@@ -60,6 +60,7 @@ function MainScene:onCreate()
             --printf("Touch Move")
         elseif eventType == ccui.TouchEventType.ended then
             --printf("Touch Up")
+            self:getApp():enterScene("LoginScene")
         elseif eventType == ccui.TouchEventType.canceled then
             --printf("Touch Cancelled")
         end
