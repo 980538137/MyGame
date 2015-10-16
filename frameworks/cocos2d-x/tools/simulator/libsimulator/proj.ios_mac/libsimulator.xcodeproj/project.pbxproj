@@ -915,6 +915,7 @@
 					armv7,
 					arm64,
 				);
+				ENABLE_BITCODE = NO;
 				EXECUTABLE_PREFIX = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
@@ -945,6 +946,7 @@
 					armv7,
 					arm64,
 				);
+				ENABLE_BITCODE = NO;
 				EXECUTABLE_PREFIX = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
