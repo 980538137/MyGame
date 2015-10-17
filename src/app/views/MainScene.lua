@@ -6,21 +6,8 @@ local MainScene = class("MainScene", cc.load("mvc").ViewBase)
 --require "app.proto.PlayerInfo_pb"
 --require "app.proto.mobileGame_pb"
 --require "app.proto.Texaspoker_pb"
---require "protobuf-pbc.protobuf"
 
---addr = io.open("protobuf-pbc/addressbook.pb","rb")
---buffer = addr:read "*a"
---addr:close()
---protobuf.register(buffer)
 
---addressbook = {
---name = "Alice",
---id = 12345,
---phone = {
---{ number = "1301234567" },
---{ number = "87654321", type = "WORK" },
---}
---}
 
 --code = protobuf.encode("tutorial.Person", addressbook)
 
@@ -70,6 +57,30 @@ function MainScene:onCreate()
     local button = node:getChildByName("EnterButton")
     button:addTouchEventListener(touchEvent)
 
+    require "protobuf-pbc.protobuf"
+    --  Register
+    -- local addr = io.open("../../protobuf-pbc/addressbook.pb","rb")
+    -- buffer = addr:read "*a"
+    -- addr:close()
+    -- local addr = assert(io.open("/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb","rb"))
+    -- buffer = addr:read "*a"
+    -- addr:close()
+    -- protobuf.register(buffer)
+    --or
+    protobuf.register_file "/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb"
+    
+    
+    local addressbook = {
+        name = "Alice",
+        id = 12345,
+        phone = {
+            { number = "1301234567" },
+            { number = "87654321", type = "WORK" },
+        }
+    }
+    local code = protobuf.encode("tutorial.Person", addressbook)
+    local decode = protobuf.decode("tutorial.Person" , code)
+    printf("Name:%s Id:%d",decode.name,decode.id)
 --  lua-protobuf test
 
 --    local msg = PlayerInfo_pb.PlayerInfo()
