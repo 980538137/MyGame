@@ -5,7 +5,7 @@ extern "C" {
 #include "lualib.h"
 #include "lauxlib.h"
 
-#include "pbc.h"
+#include "src/pbc.h"
 
 #ifdef __cplusplus
 }

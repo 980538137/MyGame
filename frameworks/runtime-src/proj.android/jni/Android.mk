@@ -7,6 +7,20 @@ LOCAL_MODULE := cocos2dlua_shared
 LOCAL_MODULE_FILENAME := libcocos2dlua
 
 LOCAL_SRC_FILES := \
+../../Classes/pbc/src/alloc.c \
+../../Classes/pbc/src/array.c \
+../../Classes/pbc/src/bootstrap.c \
+../../Classes/pbc/src/context.c \
+../../Classes/pbc/src/decode.c \
+../../Classes/pbc/src/map.c \
+../../Classes/pbc/src/pattern.c \
+../../Classes/pbc/src/proto.c \
+../../Classes/pbc/src/register.c \
+../../Classes/pbc/src/rmessage.c \
+../../Classes/pbc/src/stringpool.c \
+../../Classes/pbc/src/varint.c \
+../../Classes/pbc/src/wmessage.c \
+../../Classes/pbc/pbc-lua.c\
 ../../Classes/AppDelegate.cpp \
 ../../Classes/ide-support/SimpleConfigParser.cpp \
 ../../Classes/ide-support/RuntimeLuaImpl.cpp \

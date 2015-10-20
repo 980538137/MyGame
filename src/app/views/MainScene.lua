@@ -59,7 +59,9 @@ function MainScene:onCreate()
 
     require "protobuf-pbc.protobuf"
     --  Register
-    -- local addr = io.open("../../protobuf-pbc/addressbook.pb","rb")
+    -- local fileUtil = cc.FileUtils:getInstance()
+    -- local addr = fileUtil:getFileData("protobuf-pbc/addressbook.pb","rb",0)
+    -- -- local addr = io.open("../../protobuf-pbc/addressbook.pb","rb")
     -- buffer = addr:read "*a"
     -- addr:close()
     -- local addr = assert(io.open("/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb","rb"))
@@ -67,20 +69,20 @@ function MainScene:onCreate()
     -- addr:close()
     -- protobuf.register(buffer)
     --or
-    protobuf.register_file "/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb"
+    -- protobuf.register_file "/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb"
     
     
-    local addressbook = {
-        name = "Alice",
-        id = 12345,
-        phone = {
-            { number = "1301234567" },
-            { number = "87654321", type = "WORK" },
-        }
-    }
-    local code = protobuf.encode("tutorial.Person", addressbook)
-    local decode = protobuf.decode("tutorial.Person" , code)
-    printf("Name:%s Id:%d",decode.name,decode.id)
+    -- local addressbook = {
+    --     name = "Alice",
+    --     id = 12345,
+    --     phone = {
+    --         { number = "1301234567" },
+    --         { number = "87654321", type = "WORK" },
+    --     }
+    -- }
+    -- local code = protobuf.encode("tutorial.Person", addressbook)
+    -- local decode = protobuf.decode("tutorial.Person" , code)
+    -- printf("Name:%s Id:%d",decode.name,decode.id)
 --  lua-protobuf test
 
 --    local msg = PlayerInfo_pb.PlayerInfo()
