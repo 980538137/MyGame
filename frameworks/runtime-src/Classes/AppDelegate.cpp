@@ -73,6 +73,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     lua_State* L = engine->getLuaStack()->getLuaState();
     lua_module_register(L);
     luaopen_protobuf_c(L);
+    //解决android中无法读取到.pb文件的问题
     lua_register(L, "bsReadFile", bsReadFile);
     
     register_all_packages();
