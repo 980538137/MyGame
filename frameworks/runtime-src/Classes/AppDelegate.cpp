@@ -53,6 +53,15 @@ static int register_all_packages()
     return 0; //flag for packages manager
 }
 
+static int bsReadFile(lua_State *L)
+{
+    const char *buff = luaL_checkstring(L, -1);
+    Data data = FileUtils::getInstance()->getDataFromFile(buff);
+    lua_pushlstring(L, (const char*)data.getBytes(), data.getSize());
+    return 1;
+    
+}
+
 bool AppDelegate::applicationDidFinishLaunching()
 {
     // set default FPS
@@ -64,6 +73,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     lua_State* L = engine->getLuaStack()->getLuaState();
     lua_module_register(L);
     luaopen_protobuf_c(L);
+    lua_register(L, "bsReadFile", bsReadFile);
     
     register_all_packages();
 
