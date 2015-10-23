@@ -17,71 +17,80 @@ function MainScene:onCreate()
     local node = cc.CSLoader:createNode("MainScene.csb")
     self:addChild(node)
 
-    local function touchEvent(sender,eventType)
-        if eventType == ccui.TouchEventType.began then
-            --printf("Touch Down")
-
---            local req = mobileGame_pb.ReqGameAccountLogin()
---            req.account = "sgxsgx"
---            req.accountType = 0
---            req.password = "123456"
---            req.terminal = 2
---            req.deviceNumber = ""
---            req.gameId = 25011
---            req.comeFrom = "thran"
---            req.token = ""
---            req.language = "en"
---            req.source = 1
---            local req = Texaspoker_pb.REQ_LoginJSS()
---            req.rolename = "sgx"
---            req.cert = "0x83352e20"
---            req.userip = "172.28.160.145"
---            req.LoginMode = 3
---            req.comfromid = 3
---            req.isVisitor = 0
---            req.sLangID = "en"
---            local reqData = req:SerializeToString()
---            printf("SendData:%s Size:%d",reqData,#reqData)
---            SOCKET:send(reqData)
-        elseif eventType == ccui.TouchEventType.moved then
-            --printf("Touch Move")
-        elseif eventType == ccui.TouchEventType.ended then
-            --printf("Touch Up")
-            self:getApp():enterScene("LoginScene")
-        elseif eventType == ccui.TouchEventType.canceled then
-            --printf("Touch Cancelled")
-        end
+    function myadd(x , y)
+        local test = my.MyClass:create()
+        print("lua bind:"..test:foo(99))
+        return x + y
     end
 
---    local button = ccui.Helper:seekWidgetByName(node, "EnterButton")
-    local button = node:getChildByName("EnterButton")
-    button:addTouchEventListener(touchEvent)
+    local s = myadd(6,10)
+    printf("result:%d",myadd(6,10))
 
-    require "protobuf-pbc.protobuf"
-    --  Register
-    local fullPath = cc.FileUtils:getInstance():fullPathForFilename("protobuf-pbc/addressbook.pb")
-    printf("FullPath:%s",fullPath)
-    -- -- local addr = cc.FileUtils:getInstance():getFileData("protobuf-pbc/addressbook.pb","rb",0)
-    -- local addr = io.open(fullPath,"rb")
-    local buffer = bsReadFile(fullPath)
-    -- buffer = addr:read "*a"
-    -- addr:close()
-    protobuf.register(buffer)
-    --or
-    -- protobuf.register_file "/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb"
+--     local function touchEvent(sender,eventType)
+--         if eventType == ccui.TouchEventType.began then
+--             --printf("Touch Down")
+
+-- --            local req = mobileGame_pb.ReqGameAccountLogin()
+-- --            req.account = "sgxsgx"
+-- --            req.accountType = 0
+-- --            req.password = "123456"
+-- --            req.terminal = 2
+-- --            req.deviceNumber = ""
+-- --            req.gameId = 25011
+-- --            req.comeFrom = "thran"
+-- --            req.token = ""
+-- --            req.language = "en"
+-- --            req.source = 1
+-- --            local req = Texaspoker_pb.REQ_LoginJSS()
+-- --            req.rolename = "sgx"
+-- --            req.cert = "0x83352e20"
+-- --            req.userip = "172.28.160.145"
+-- --            req.LoginMode = 3
+-- --            req.comfromid = 3
+-- --            req.isVisitor = 0
+-- --            req.sLangID = "en"
+-- --            local reqData = req:SerializeToString()
+-- --            printf("SendData:%s Size:%d",reqData,#reqData)
+-- --            SOCKET:send(reqData)
+--         elseif eventType == ccui.TouchEventType.moved then
+--             --printf("Touch Move")
+--         elseif eventType == ccui.TouchEventType.ended then
+--             --printf("Touch Up")
+--             self:getApp():enterScene("LoginScene")
+--         elseif eventType == ccui.TouchEventType.canceled then
+--             --printf("Touch Cancelled")
+--         end
+--     end
+
+-- --    local button = ccui.Helper:seekWidgetByName(node, "EnterButton")
+--     local button = node:getChildByName("EnterButton")
+--     button:addTouchEventListener(touchEvent)
+
+--     require "protobuf-pbc.protobuf"
+--     --  Register
+--     local fullPath = cc.FileUtils:getInstance():fullPathForFilename("protobuf-pbc/addressbook.pb")
+--     printf("FullPath:%s",fullPath)
+--     -- -- local addr = cc.FileUtils:getInstance():getFileData("protobuf-pbc/addressbook.pb","rb",0)
+--     -- local addr = io.open(fullPath,"rb")
+--     local buffer = bsReadFile(fullPath)
+--     -- buffer = addr:read "*a"
+--     -- addr:close()
+--     protobuf.register(buffer)
+--     --or
+--     -- protobuf.register_file "/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb"
     
     
-    local addressbook = {
-        name = "Alice",
-        id = 12345,
-        phone = {
-            { number = "1301234567" },
-            { number = "87654321", type = "WORK" },
-        }
-    }
-    local code = protobuf.encode("tutorial.Person", addressbook)
-    local decode = protobuf.decode("tutorial.Person" , code)
-    printf("Name:%s Id:%d",decode.name,decode.id)
+--     local addressbook = {
+--         name = "Alice",
+--         id = 12345,
+--         phone = {
+--             { number = "1301234567" },
+--             { number = "87654321", type = "WORK" },
+--         }
+--     }
+--     local code = protobuf.encode("tutorial.Person", addressbook)
+--     local decode = protobuf.decode("tutorial.Person" , code)
+--     printf("Name:%s Id:%d",decode.name,decode.id)
 --  lua-protobuf test
 
 --    local msg = PlayerInfo_pb.PlayerInfo()
@@ -112,8 +121,8 @@ function MainScene:onCreate()
 --    printf("Account:%s  password:%s  ReqGameAccountLogin:%s",req.account,req.password,reqData)
 
 --172.28.14.87",22446
-    SOCKET = require("app.network.socket").new("172.28.41.205",22168)
-    SOCKET:connect()
+    -- SOCKET = require("app.network.socket").new("172.28.41.205",22168)
+    -- SOCKET:connect()
 
 
 ----   Schedule
