@@ -25,6 +25,8 @@ LOCAL_SRC_FILES := \
 ../../Classes/ide-support/SimpleConfigParser.cpp \
 ../../Classes/ide-support/RuntimeLuaImpl.cpp \
 ../../Classes/ide-support/lua_debugger.c \
+../../Classes/lua_MyClass_auto.cpp \
+../../Classes/MyClass.cpp \
 hellolua/main.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
