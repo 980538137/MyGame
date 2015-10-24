@@ -70,31 +70,31 @@ function MainScene:onCreate()
 --     local button = node:getChildByName("EnterButton")
 --     button:addTouchEventListener(touchEvent)
 
---     require "protobuf-pbc.protobuf"
---     --  Register
---     local fullPath = cc.FileUtils:getInstance():fullPathForFilename("protobuf-pbc/addressbook.pb")
---     printf("FullPath:%s",fullPath)
---     -- -- local addr = cc.FileUtils:getInstance():getFileData("protobuf-pbc/addressbook.pb","rb",0)
---     -- local addr = io.open(fullPath,"rb")
---     local buffer = bsReadFile(fullPath)
---     -- buffer = addr:read "*a"
---     -- addr:close()
---     protobuf.register(buffer)
---     --or
---     -- protobuf.register_file "/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb"
+    require "protobuf-pbc.protobuf"
+    --  Register
+    local fullPath = cc.FileUtils:getInstance():fullPathForFilename("protobuf-pbc/addressbook.pb")
+    printf("FullPath:%s",fullPath)
+    -- -- local addr = cc.FileUtils:getInstance():getFileData("protobuf-pbc/addressbook.pb","rb",0)
+    -- local addr = io.open(fullPath,"rb")
+    local buffer = bsReadFile(fullPath)
+    -- buffer = addr:read "*a"
+    -- addr:close()
+    protobuf.register(buffer)
+    --or
+    -- protobuf.register_file "/Users/liming/Documents/work/cocos2d-x-3.8/projects/MyGame/src/app/proto/addressbook.pb"
     
     
---     local addressbook = {
---         name = "Alice",
---         id = 12345,
---         phone = {
---             { number = "1301234567" },
---             { number = "87654321", type = "WORK" },
---         }
---     }
---     local code = protobuf.encode("tutorial.Person", addressbook)
---     local decode = protobuf.decode("tutorial.Person" , code)
---     printf("Name:%s Id:%d",decode.name,decode.id)
+    local addressbook = {
+        name = "Alice",
+        id = 12345,
+        phone = {
+            { number = "1301234567" },
+            { number = "87654321", type = "WORK" },
+        }
+    }
+    local code = protobuf.encode("tutorial.Person", addressbook)
+    local decode = protobuf.decode("tutorial.Person" , code)
+    printf("Name:%s Id:%d",decode.name,decode.id)
 --  lua-protobuf test
 
 --    local msg = PlayerInfo_pb.PlayerInfo()
