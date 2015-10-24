@@ -96,7 +96,8 @@ bool AppDelegate::applicationDidFinishLaunching()
         return false;
     }
 #endif
-
+    
+    engine->executeString("test()");
     return true;
 }
 

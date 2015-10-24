@@ -17,6 +17,10 @@ function MainScene:onCreate()
     local node = cc.CSLoader:createNode("MainScene.csb")
     self:addChild(node)
 
+    function test()
+        printf("test C++ call lua")
+    end
+
     function myadd(x , y)
         local test = my.MyClass:create()
         print("lua bind:"..test:foo(99))
